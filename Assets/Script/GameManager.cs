@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.UI;
+using System.Collections;
 
 //CSV
 [System.Serializable]
@@ -18,6 +20,12 @@ public class GameManager : MonoBehaviour
     private TextMeshProUGUI odaiText;
     [SerializeField]
     private TextMeshProUGUI answerText;
+    [SerializeField]
+    private Button okButton;
+    [SerializeField]
+    private GameObject endObject;
+    [SerializeField]
+    private float timeToShowEndObject = 2f;
 
     private List<CSVData> csvDataList = new List<CSVData>();
     private CSVData currentCSVData;
@@ -27,7 +35,6 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -38,6 +45,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        endObject.gameObject.SetActive(false);
         answerText.gameObject.SetActive(false);
         LoadCSVData();
         SpawnNextCSVData();
@@ -93,6 +101,8 @@ public class GameManager : MonoBehaviour
         if (currentCSVData != null && clarifiedInputText.Equals(clearedCorrectAnswer))
         {
             odaiText.gameObject.SetActive(true);
+            okButton.gameObject.SetActive(false);
+            StartCoroutine(ShowEndObject(timeToShowEndObject));
             answerText.color = Color.red;
             answerText.text = "正解";
         }
@@ -102,4 +112,12 @@ public class GameManager : MonoBehaviour
             answerText.text = "不正解";
         }
     }
+
+    private IEnumerator ShowEndObject(float time)
+    {
+        yield return new WaitForSeconds(time);
+        endObject.gameObject.SetActive(true);
+    }
+
+    
 }
