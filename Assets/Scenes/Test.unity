@@ -1279,6 +1279,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DrawLine
   linePrefab: {fileID: 408940902}
+  minX: -6
+  maxX: 6
+  minY: -3.9
+  maxY: 4
 --- !u!4 &1548387668
 Transform:
   m_ObjectHideFlags: 0
