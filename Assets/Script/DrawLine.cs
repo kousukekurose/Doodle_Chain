@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class DrawLine : MonoBehaviour
 {
+    public static DrawLine instance { get; private set; }
     [SerializeField] 
     private GameObject linePrefab;
     [Header("描画範囲の制限")]
@@ -22,13 +23,23 @@ public class DrawLine : MonoBehaviour
     private Vector2 mousePos2D;
     private Vector3 worldPosition;
 
+    public bool canDraw = false;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     void Start()
     {
+        canDraw = true;
         mainCamera = Camera.main;
     }
 
     void Update()
     {
+        if(!canDraw) return;
         if (Mouse.current == null) return;
 
         // マウスの左ボタンが今「押されているか」を確実に取得
@@ -103,6 +114,12 @@ public class DrawLine : MonoBehaviour
     {
         return position.x >= minX && position.x <= maxX && 
                 position.y >= minY && position.y <= maxY;
+    }
+
+    public void StopDrawingForce()
+    {
+        isDrawing = false;
+        currentLineRenderer = null; // 線の接続を完全に切る（AddPointが動かなくなる）
     }
 
     public void ClearLines()

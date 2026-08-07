@@ -92,6 +92,7 @@ public class GameManager : MonoBehaviour
         string clearedCorrectAnswer = currentCSVData.name.Trim();
         if (currentCSVData != null && clarifiedInputText.Equals(clearedCorrectAnswer))
         {
+            odaiText.gameObject.SetActive(true);
             answerText.color = Color.red;
             answerText.text = "正解";
         }

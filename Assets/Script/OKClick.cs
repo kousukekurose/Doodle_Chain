@@ -13,10 +13,12 @@ public class OKClick : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI odaiText;
     GameManager gameManager;
+    DrawLine drawLine;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        drawLine = DrawLine.instance;
         gameManager = GameManager.instance;
         inputField.gameObject.SetActive(false);
         okButton.gameObject.SetActive(false);
@@ -45,6 +47,15 @@ public class OKClick : MonoBehaviour
         okButton.gameObject.SetActive(true);
         odaiText.gameObject.SetActive(false);
         doodleOKButton.gameObject.SetActive(false);
+        if(drawLine != null)
+        {
+            drawLine.canDraw = false;
+            drawLine.StopDrawingForce(); 
+        }
+        else
+        {
+            Debug.LogError("DrawLine instance is null.");
+        }
     }
 
     public void OnClearButtonClick()
