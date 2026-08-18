@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;        // 💡 TextMeshProのInputFieldを使う場合
 using Fusion;
+using System.Collections.Generic;
 
 public class NetworkManager : NetworkBehaviour
 {
@@ -38,7 +39,11 @@ public class NetworkManager : NetworkBehaviour
         {
             GameMode = GameMode.Shared,       
             SessionName = targetRoomName,    // 💡 ユーザーが入力をした文字列をここに渡す！
-            SceneManager = sceneManager
+            SceneManager = sceneManager,
+            SessionProperties = new Dictionary<string ,SessionProperty>
+            {
+                {"HostRole",0}
+            }
         });
 
         // 4. 接続結果の判定
