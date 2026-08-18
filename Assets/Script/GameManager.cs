@@ -51,12 +51,6 @@ public class GameManager : MonoBehaviour
         SpawnNextCSVData();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void LoadCSVData()
     {
         TextAsset csvFile = Resources.Load<TextAsset>("odai");
