@@ -76,7 +76,7 @@ public class LobbyManager : MonoBehaviour // シーン直置きのため通常�
                 
                 // 1人（テスト用）または2人揃った時に確実にスタートボタンを出す
                 int playerCount = _myNetworkRunner.ActivePlayers.Count();
-                if (playerCount >= 1) 
+                if (playerCount >= 2) 
                 {
                     startGameButton.gameObject.SetActive(true);
                 }
