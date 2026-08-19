@@ -94,9 +94,9 @@ public class GameManager : NetworkBehaviour
         }
         else // 🧐 回答者の場合
         {
-            okButton.gameObject.SetActive(true);
-            if(answerInputField != null) answerInputField.gameObject.SetActive(true);
-            odaiText.text = "お題：？？？"; // 💡回答者にはまだ答えを隠しておく
+            okButton.gameObject.SetActive(false);
+            if(answerInputField != null) answerInputField.gameObject.SetActive(false);
+            odaiText.text = "お題：ひみつ"; // 💡回答者にはまだ答えを隠しておく
         }
     }
 
@@ -131,7 +131,7 @@ public class GameManager : NetworkBehaviour
         }
         else // 回答者なら「？？？」にして隠す
         {
-            odaiText.text = "お題 【 ？？？ 】";
+            odaiText.text = "お題 【 ひみつ】";
         }
     }
 

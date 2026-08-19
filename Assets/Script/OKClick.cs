@@ -28,10 +28,12 @@ public class OKClick : NetworkBehaviour
         // 💡 役割によるボタンの出し分け
         if (myRole == 1) // 🎨 描き手なら「描き終わりボタン」を表示
         {
+            Debug.Log(myRole);
             doodleOKButton.gameObject.SetActive(true);
         }
         else // 🧐 回答者なら「描き終わりボタン」は邪魔なので消しておく
         {
+            Debug.Log(myRole);
             doodleOKButton.gameObject.SetActive(false);
         }
     }
@@ -56,10 +58,16 @@ public class OKClick : NetworkBehaviour
         drawLine = DrawLine.instance;
         gameManager = GameManager.instance;
 
-        // 2. 🎨 描き手・🧐 回答者に関わらず、全員の画面のUIを「回答フェーズ」に切り替える
-        inputField.gameObject.SetActive(true);
-        okButton.gameObject.SetActive(true);
-        odaiText.gameObject.SetActive(false);
+        if(myRole == 2)
+        {
+            inputField.gameObject.SetActive(true);
+            okButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            inputField.gameObject.SetActive(false);
+            okButton.gameObject.SetActive(false);
+        }
         doodleOKButton.gameObject.SetActive(false);
 
         // 3. お絵描き機能を強制停止（これで描き手もこれ以上線を引けなくなります）
@@ -70,7 +78,7 @@ public class OKClick : NetworkBehaviour
         }
     }
 
-    // 💡 回答者が「回答（OK）」ボタンをクリックしたときの関数
+    // 回答者が「回答（OK）」ボタンをクリックしたときの関数
     public void OnOKButtonClick()
     {
         gameManager = GameManager.instance;
