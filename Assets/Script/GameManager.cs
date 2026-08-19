@@ -96,7 +96,7 @@ public class GameManager : NetworkBehaviour
         {
             okButton.gameObject.SetActive(false);
             if(answerInputField != null) answerInputField.gameObject.SetActive(false);
-            odaiText.text = "お題：ひみつ"; // 💡回答者にはまだ答えを隠しておく
+            odaiText.text = "おだい　ひみつ"; // 💡回答者にはまだ答えを隠しておく
         }
     }
 
@@ -127,11 +127,11 @@ public class GameManager : NetworkBehaviour
         // 💡 届いたお題を画面に表示するかどうかは、自分の役割でパターン分けする！
         if (myRole == 1) // 描き手なら文字を見せる
         {
-            odaiText.text = $"お題 【{currentCSVData.name}】";
+            odaiText.text = $"おだい 　{currentCSVData.name}　";
         }
         else // 回答者なら「？？？」にして隠す
         {
-            odaiText.text = "お題 【 ひみつ】";
+            odaiText.text = "おだい　ひみつ";
         }
     }
 
@@ -154,17 +154,17 @@ public class GameManager : NetworkBehaviour
         {
             // 💡【次のステップ】正解したことをRPC通信で描き手にも伝えて、全員同時に終了画面に進ませる
             answerText.color = Color.red;
-            answerText.text = "正解！";
+            answerText.text = "せいかい！";
             
             // 正解したのでお題を公開する
-            odaiText.text = $"お題 【{currentCSVData.name}】";
+            odaiText.text = $"おだい 　{currentCSVData.name}　";
             okButton.gameObject.SetActive(false);
             StartCoroutine(ShowEndObject(timeToShowEndObject));
         }
         else
         {
             answerText.color = Color.blue;
-            answerText.text = "不正解！";
+            answerText.text = "ふせいかい！";
         }
     }
 

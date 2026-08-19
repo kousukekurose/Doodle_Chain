@@ -34,12 +34,12 @@ public class LobbyManager : MonoBehaviour // シーン直置きのため通常�
 
         if (_myNetworkRunner == null)
         {
-            statusText.text = "エラー: 通信が切断されました";
+            statusText.text = "エラーせつだんされました";
             return;
         }
 
-        statusText.text = "対戦相手を待っています...";
-        myRoleStatusText.text = "ホストの選択を待っています...";
+        statusText.text = "たいきちゅう...";
+        myRoleStatusText.text = "ホストがせんたくちゅう...";
     }
 
     void Update()
@@ -54,7 +54,7 @@ public class LobbyManager : MonoBehaviour // シーン直置きのため通常�
         // 2. サーバー（部屋）との接続が完全に確立するまで待機する
         if (!_myNetworkRunner.IsCloudReady)
         {
-            statusText.text = "ネットワーク同期中...";
+            statusText.text = "ネットワークどうきちゅう...";
             return;
         }
 
@@ -65,13 +65,13 @@ public class LobbyManager : MonoBehaviour // シーン直置きのため通常�
         {
             if (!_localSelectionDone)
             {
-                statusText.text = "【あなたはホストです】役割を選んでください。";
+                statusText.text = "【あなたはホストです】えらんでください！";
                 hostUIObject.SetActive(true); 
                 startGameButton.gameObject.SetActive(false);
             }
             else
             {
-                statusText.text = "【あなたはホストです】準備が完了しました。";
+                statusText.text = "【あなたはホストです】せんたくOK！";
                 hostUIObject.SetActive(false); 
                 
                 // 1人（テスト用）または2人揃った時に確実にスタートボタンを出す
@@ -98,7 +98,7 @@ public class LobbyManager : MonoBehaviour // シーン直置きのため通常�
     {
         _localSelectionDone = true; 
         SetHostRoleProperty(1); // 1: 描き手
-        myRoleStatusText.text = "あなたの役割: 【絵を描く人】";
+        myRoleStatusText.text = "あなたは【えをかくひと】";
         PlayerPrefs.SetInt("SelectedRole", 1); 
         PlayerPrefs.Save();
     }
@@ -108,7 +108,7 @@ public class LobbyManager : MonoBehaviour // シーン直置きのため通常�
     {
         _localSelectionDone = true; 
         SetHostRoleProperty(2); // 2: 回答者
-        myRoleStatusText.text = "あなたの役割: 【答える人】";
+        myRoleStatusText.text = "あなたは【こたえるひと】";
         PlayerPrefs.SetInt("SelectedRole", 2); 
         PlayerPrefs.Save();
     }
@@ -138,19 +138,19 @@ public class LobbyManager : MonoBehaviour // シーン直置きのため通常�
 
             if (hostRole == 1) 
             {
-                myRoleStatusText.text = "ホストが選択完了\n今回はあなたは 答える人 です";
+                myRoleStatusText.text = "ホストせんたくOK！\nあなたは【こたえるひと】です";
                 PlayerPrefs.SetInt("SelectedRole", 2); 
             }
             else if (hostRole == 2) 
             {
-                myRoleStatusText.text = "ホストが選択完了\n今回はあなたは 絵を描く人 です";
+                myRoleStatusText.text = "ホストせんたくOK！\nあなたは【えをかくひと】です";
                 PlayerPrefs.SetInt("SelectedRole", 1); 
             }
             PlayerPrefs.Save();
         }
         else
         {
-            myRoleStatusText.text = "ホストが役割を選択中です...\nしばらくお待ちください。";
+            myRoleStatusText.text = "ホストがせんたくちゅうです...\nしばらくたいき！";
         }
     }
 
