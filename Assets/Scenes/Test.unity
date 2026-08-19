@@ -563,8 +563,6 @@ MonoBehaviour:
   NestedObjects:
   - {fileID: 1548387669}
   - {fileID: 809283033}
-  - {fileID: 1947613957}
-  - {fileID: 2044822618}
   - {fileID: 1693199988}
   - {fileID: 809771188}
   - {fileID: 1740917900}
@@ -1701,13 +1699,13 @@ MonoBehaviour:
   m_text: OK
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f4eb7a8b3490c45849e08f17817bb8e4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: -918482838065405634, guid: f4eb7a8b3490c45849e08f17817bb8e4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -2906,7 +2904,6 @@ GameObject:
   - component: {fileID: 1947613956}
   - component: {fileID: 1947613955}
   - component: {fileID: 1947613954}
-  - component: {fileID: 1947613957}
   m_Layer: 5
   m_Name: OKButton
   m_TagString: Untagged
@@ -3028,25 +3025,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947613952}
   m_CullTransparentMesh: 1
---- !u!114 &1947613957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1947613952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Fusion.Runtime.dll::Fusion.NetworkObject
-  SortKey: 3153578031
-  SendPriority: 1
-  EnableInterpolation: 1
-  Flags: 262146
-  NestedObjects: []
-  NetworkedBehaviours: []
-  ForceRemoteRenderTimeframe: 0
 --- !u!1 &2044822613
 GameObject:
   m_ObjectHideFlags: 0
@@ -3059,7 +3037,7 @@ GameObject:
   - component: {fileID: 2044822617}
   - component: {fileID: 2044822616}
   - component: {fileID: 2044822615}
-  - component: {fileID: 2044822618}
+  - component: {fileID: 2044822619}
   m_Layer: 5
   m_Name: InputField (TMP)
   m_TagString: Untagged
@@ -3178,7 +3156,7 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
-  m_GlobalFontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_GlobalFontAsset: {fileID: 0}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_KeepTextSelectionVisible: 0
@@ -3226,7 +3204,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2044822613}
   m_CullTransparentMesh: 1
---- !u!114 &2044822618
+--- !u!114 &2044822619
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3235,16 +3213,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2044822613}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Script: {fileID: 11500000, guid: cc33a39070010f94fb1c2dd721c1286d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Fusion.Runtime.dll::Fusion.NetworkObject
-  SortKey: 73777501
-  SendPriority: 1
-  EnableInterpolation: 1
-  Flags: 262146
-  NestedObjects: []
-  NetworkedBehaviours: []
-  ForceRemoteRenderTimeframe: 0
+  m_EditorClassIdentifier: WebGLInput::WebGLSupport.WebGLInput
+  showHtmlElement: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
