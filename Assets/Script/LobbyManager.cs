@@ -44,6 +44,9 @@ public class LobbyManager : MonoBehaviour // シーン直置きのため通常�
 
     void Update()
     {
+        // 💡【追加】自分自身や必要なUIオブジェクトがシーン遷移などで消滅していたら、即座に処理を中断する（エラー防止）
+        if (this == null || hostUIObject == null || startGameButton == null || statusText == null) return;
+
         // 1. ネットワーク本体が捕まるまでは何もしない（Nullエラー防止）
         if (_myNetworkRunner == null)
         {
@@ -92,6 +95,7 @@ public class LobbyManager : MonoBehaviour // シーン直置きのため通常�
             CheckHostSelection();
         }
     }
+
 
     // ホストが「絵を描く」を選んだとき
     public void OnSelectDrawer()

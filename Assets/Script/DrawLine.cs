@@ -51,20 +51,13 @@ public class DrawLine : NetworkBehaviour
 
     public override void Spawned()
     {
-        // 自分の画面に生成されたマネージャーを静的インスタンスに登録
-        if (HasStateAuthority)
-        {
-            instance = this;
-        }
+        instance = this;
     }
 
     void Update()
     {
         // ロビーで回答者を選んだ、または描画制限がかかっている場合は入力をすべてスルー
         if (!canDraw) return;
-        
-        // 💡通信上の所有権（StateAuthority）がない場合もスルー
-        if (!HasStateAuthority) return; 
 
         // マウス ＆ スマホタッチ両対応の判定
         bool isPressing = false;
